@@ -1,16 +1,14 @@
+import java.util.ArrayList;
+
 import domain.Index;
 import domain.Manager;
 import domain.Restaurant;
 import domain.Type;
-import domain.dao.RestaurantDAO;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Manager mngr = new Manager("Ivan", "Tzvetkov");
-		//RestaurantDAO restDAO = new RestaurantDAO();
-		//restDAO.generateList();
-		//Index index = new Index(); 
 		Index index = Index.getInstance(); 
 		
 		//add Restaurants
@@ -22,7 +20,25 @@ public class Main {
 		index.addToList(rest2);
 		index.addToList(rest3);
 		index.addToList(rest4);
-		index.displayList();
+		index.displayAll();
+		
+		//search
+		//find by name: 
+		System.out.println("---- Find by name: Casa Mia ---- ");
+		Restaurant casaMia = index.findByName("Casa Mia"); 
+		System.out.println(casaMia.getId() + " " + casaMia.getName() );
+				
+		//find by Id:
+		System.out.println("---- Find by id: 101 ---- ");
+		Restaurant idRest = index.findById(106); 
+		System.out.println(idRest.getId() + " " + idRest.getName() );
+		
+		//find by Type
+		System.out.println("---- Find by type: Pizza ---- ");
+		ArrayList<Restaurant> pizzaPlaces = index.findByType(Type.PIZZA);
+		for (Restaurant rest : pizzaPlaces) {
+			System.out.println(rest.getId() + " " + rest.getName() );
+		}
 		
 	}
 }

@@ -13,7 +13,6 @@ public class Manager {
 		System.out.println("Restaurant " + restaurant.getName() + " was created in " + city.getName());
 	}
 
-
 	public String getFirstName() {
 		return firstName;
 	}

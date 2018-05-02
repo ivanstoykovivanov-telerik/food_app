@@ -16,6 +16,10 @@ public class Restaurant {
 	private String address; 
 	private Menu menu; 
 	
+	public Restaurant() {
+		super();
+	}
+	
 	public Restaurant(String name, Type type, String webSite, String phone, String address,  String description) {
 		super();
 		this.name = name;
@@ -27,7 +31,11 @@ public class Restaurant {
 		this.rating = 0 ; 
 		this.id = ++counter + 100; 
 	}
-	
+
+	public Type getType() {
+		return type;
+	}
+
 	public int getRating() {
 		return rating;
 	}

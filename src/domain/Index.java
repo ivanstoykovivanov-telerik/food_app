@@ -8,6 +8,7 @@ public class Index implements ICRUD{
 	private static Index INSTANCE = null ;
 	private ArrayList<Restaurant> restaurants ; 
 	
+	//singleton desing pattern - we need only one index
 	private Index(){
 		this.restaurants = new ArrayList<>();
 	}
@@ -36,22 +37,45 @@ public class Index implements ICRUD{
 	}
 	
 	
-	public void displayList(){
+	public void displayAll(){
 		for (Restaurant rest : restaurants) {
 			System.out.println( rest.getId() + " " + rest.getName() );
 		}
 	}
 	
+	//TODO add excpetions
 	public Restaurant findById(int id){
-		return null; 
+		Restaurant found = new Restaurant();
+		for (Restaurant rest : restaurants){
+			if(rest.getId() == id ){
+				found = rest ; 
+			} 
+		}
+		return found;
 	}
 	
+	//TODO add excpetions
 	public Restaurant findByName(String name){
-		return null; 
+		Restaurant found = new Restaurant(); 
+		for (Restaurant rest : restaurants){
+			if(rest.getName().equals(name)){
+				found = rest ; 
+			}
+		}
+		return found;
 	}
 	
+	//TODO add excpetions
 	public ArrayList<Restaurant> findByType(Type type){
-		return restaurants; 
+		ArrayList<Restaurant> found = new ArrayList<>(); 
+		
+		for (Restaurant rest : restaurants) {
+			if(rest.getType() == type) {
+				found.add(rest); 
+			}else {
+				System.out.println("Not found");
+			}
+		}
+		return found; 
 	}
-	
 }
