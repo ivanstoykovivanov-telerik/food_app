@@ -1,10 +1,11 @@
 package domain;
 
-import domain.dao.RestaurantDAO;
+import domain.dao.IAddable;
+import domain.dao.ISearchable;
 
-public class Restaurant {
+public class Restaurant implements ISearchable, IAddable  {
 	//private RestaurantDAO dao ; // ??? do i need 
-	private static int counter; 
+	private static int counter; 	
 	private int id; 
 	private String name;
 	private Type type;  
@@ -44,14 +45,6 @@ public class Restaurant {
 		this.rating = rating;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
 	public void setName(String name) {
 		this.name = name;	
 	}
@@ -66,6 +59,15 @@ public class Restaurant {
 
 	public Menu getMenu() {
 		return menu;
-	} 
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
 	
 }

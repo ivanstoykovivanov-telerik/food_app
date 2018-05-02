@@ -1,5 +1,15 @@
 package domain.dao;
 
-public interface IFindable {
+import java.util.ArrayList;
 
+import domain.Restaurant;
+import domain.Type;
+
+public interface IFindable {
+		
+		public ISearchable findById(int id); 
+		
+		public Restaurant findByName(String name); 
+		
+		public ArrayList<Restaurant> findByType(Type type); 
 }

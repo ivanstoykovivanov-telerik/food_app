@@ -13,6 +13,12 @@ public class Menu implements ICRUD {
 	}
 
 	@Override
+	public void displayAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void addToList(Object obj) {
 		// TODO Auto-generated method stub
 		
@@ -26,12 +32,6 @@ public class Menu implements ICRUD {
 
 	@Override
 	public void deleteFromList() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void displayList() {
 		// TODO Auto-generated method stub
 		
 	}

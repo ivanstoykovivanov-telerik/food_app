@@ -2,15 +2,19 @@ package domain;
 
 import java.util.ArrayList;
 
+import domain.dao.Finder;
+import domain.dao.IAddable;
 import domain.dao.ICRUD;
+import domain.dao.ISearchable;
 
-public class Index implements ICRUD{
+public class Index extends Finder implements ICRUD{
 	private static Index INSTANCE = null ;
-	private ArrayList<Restaurant> restaurants ; 
+	private ArrayList<ISearchable> restaurants ; 
 	
-	//singleton desing pattern - we need only one index
+	//singleton design pattern - we need only one index for the whole app
 	private Index(){
-		this.restaurants = new ArrayList<>();
+		super.list = new ArrayList<>();
+		this.restaurants = (ArrayList<ISearchable>) super.list; 
 	}
 	
 	public static Index getInstance(){
@@ -21,14 +25,13 @@ public class Index implements ICRUD{
 	}
 
 	@Override
-	public void addToList(Object restaurant) {
+	public void addToList(IAddable restaurant) {
 		restaurants.add( (Restaurant) restaurant);
 	}
 
 	@Override
 	public void retrieve() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -36,41 +39,42 @@ public class Index implements ICRUD{
 		// TODO Auto-generated method stub
 	}
 	
-	
+	// Finder
+	////TODO add exceptions
 	public void displayAll(){
-		for (Restaurant rest : restaurants) {
-			System.out.println( rest.getId() + " " + rest.getName() );
+		for (ISearchable restaurant : restaurants) {
+			System.out.println( ((Restaurant) restaurant).getId() + " " + ((Restaurant) restaurant).getName() );
 		}
 	}
 	
-	//TODO add excpetions
-	public Restaurant findById(int id){
-		Restaurant found = new Restaurant();
-		for (Restaurant rest : restaurants){
-			if(rest.getId() == id ){
+	//TODO add exceptions
+	public ISearchable findById(int id){
+		ISearchable found = new Restaurant();
+		for (ISearchable rest : restaurants){
+			if(((Restaurant) rest).getId() == id ){
 				found = rest ; 
 			} 
 		}
 		return found;
 	}
 	
-	//TODO add excpetions
+	//TODO add exceptions
 	public Restaurant findByName(String name){
 		Restaurant found = new Restaurant(); 
-		for (Restaurant rest : restaurants){
-			if(rest.getName().equals(name)){
-				found = rest ; 
+		for (ISearchable restaurant : restaurants){
+			if(((Restaurant) restaurant).getName().equals(name)){
+				found = (Restaurant) restaurant ; 
 			}
 		}
 		return found;
 	}
-	
-	//TODO add excpetions
-	public ArrayList<Restaurant> findByType(Type type){
-		ArrayList<Restaurant> found = new ArrayList<>(); 
+
+	//TODO add exceptions
+	public ArrayList<ISearchable> findByType(Type type){
+		ArrayList<ISearchable> found = new ArrayList<>(); 
 		
-		for (Restaurant rest : restaurants) {
-			if(rest.getType() == type) {
+		for (ISearchable rest : restaurants) {
+			if(((Restaurant) rest).getType() == type) {
 				found.add(rest); 
 			}
 		}

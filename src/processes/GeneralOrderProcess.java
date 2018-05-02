@@ -6,6 +6,10 @@ public abstract class GeneralOrderProcess {
 	public void  checkAvailability(){} 
 	public void  cookFood(){}
 	public void  getPayment() {}
-	public void  issueReceipt() {}
+	public void  issueReceipt(){}
+	public void  getRatingFromCustomer(){}
+	public void  processRatingFromCustomer(){}
+	public void  rateCustomer(){}
+	
 	
 }
