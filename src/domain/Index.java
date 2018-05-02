@@ -72,8 +72,6 @@ public class Index implements ICRUD{
 		for (Restaurant rest : restaurants) {
 			if(rest.getType() == type) {
 				found.add(rest); 
-			}else {
-				System.out.println("Not found");
 			}
 		}
 		return found; 

@@ -30,12 +30,12 @@ public class Main {
 				
 		//find by Id:
 		System.out.println("---- Find by id: 101 ---- ");
-		Restaurant idRest = index.findById(106); 
+		Restaurant idRest = index.findById(101); 
 		System.out.println(idRest.getId() + " " + idRest.getName() );
 		
 		//find by Type
 		System.out.println("---- Find by type: Pizza ---- ");
-		ArrayList<Restaurant> pizzaPlaces = index.findByType(Type.PIZZA);
+		ArrayList<Restaurant> pizzaPlaces = index.findByType(Type.valueOf("PIZZA"));
 		for (Restaurant rest : pizzaPlaces) {
 			System.out.println(rest.getId() + " " + rest.getName() );
 		}
