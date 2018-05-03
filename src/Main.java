@@ -2,14 +2,17 @@ import java.util.ArrayList;
 
 import domain.Index;
 import domain.Manager;
+import domain.Menu;
 import domain.Restaurant;
 import domain.Type;
 import domain.dao.ISearchable;
+import domain.food.Food;
+import domain.food.Item;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Manager mngr = new Manager("Ivan", "Tzvetkov");
+		Manager mngr = new Manager("Mitko", "Dermendjiev");
 		Index index = Index.getInstance(); 
 		
 		//add Restaurants
@@ -52,5 +55,22 @@ public class Main {
 		index.deleteFromList(101);
 		System.out.println("----After deletion of 101:  ---- ");
 		index.displayAll(); 
+		
+		// add food to Menu
+		Item bread = new Food("Bread", 4.50);
+		Item wine = new Food("Wine", 12.40);
+		Menu menu = new Menu();
+		menu.addToList(bread);
+		menu.addToList(wine);
+		rest1.setMenu(menu);
+		Menu menuRest1 = rest1.getMenu(); 
+		System.out.println("----Show the menu of : " + rest1.getName() +  " ---- ");
+		menuRest1.displayAll();
+		
+		//delete by id from menu 
+		menuRest1.deleteFromList(2);
+		System.out.println("--------- After deleting 2 from menu  -----------");
+		menuRest1.displayAll();
+		
 	}
 }

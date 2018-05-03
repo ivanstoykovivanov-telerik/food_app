@@ -30,7 +30,7 @@ public class Restaurant implements ISearchable, IAddable, Comparable<Restaurant>
 		this.description = description;
 		this.address = address; 
 		this.rating = rating ; // range: 0 to 10
-		this.id = ++counter + 100; 
+		this.id = ++counter + 1000; 
 	}
 
 	public int getId() {
