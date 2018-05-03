@@ -9,7 +9,7 @@ public interface IFindable {
 		
 		public ISearchable findById(int id); 
 		
-		public Restaurant findByName(String name); 
+		public ISearchable findByName(String name); 
 		
 		public ArrayList<ISearchable> findByType(Type type); 
 }

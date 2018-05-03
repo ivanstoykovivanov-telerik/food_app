@@ -26,8 +26,8 @@ public class Main {
 		//search
 		//find by name: 
 		System.out.println("---- Find by name: Casa Mia ---- ");
-		Restaurant casaMia = index.findByName("Casa Mia"); 
-		System.out.println(casaMia.getId() + " " + casaMia.getName() );
+		ISearchable casaMia = index.findByName("Casa Mia"); 
+		System.out.println(((Restaurant) casaMia).getId() + " " + ((Restaurant) casaMia).getName() );
 				
 		//find by Id:
 		System.out.println("---- Find by id: 101 ---- ");

@@ -2,9 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
-import domain.dao.Finder;
 import domain.dao.IAddable;
 import domain.dao.ICRUD;
 import domain.dao.IFindable;
@@ -63,7 +61,7 @@ public class Index  implements ICRUD, IFindable{
 	}
 	
 	//TODO add exceptions
-	public Restaurant findByName(String name){
+	public ISearchable findByName(String name){
 		Restaurant found = new Restaurant(); 
 		for (ISearchable restaurant : restaurants){
 			if(((Restaurant) restaurant).getName().equals(name)){
