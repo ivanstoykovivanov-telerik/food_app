@@ -32,13 +32,15 @@ public class Index  implements ICRUD, IFindable{
 	}
 
 	@Override
-	public void retrieve() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void deleteFromList() {
-		// TODO Auto-generated method stub
+	public void deleteFromList(int id) {
+		int indexToDelete = 0;  
+		for (Restaurant rest : restaurants){
+			if( rest.getId() == id ){
+				System.out.println(rest.getName());
+				indexToDelete =  restaurants.indexOf(rest); 
+			} 
+		}
+		restaurants.remove(indexToDelete); 
 	}
 	
 	// Finder

@@ -47,5 +47,10 @@ public class Main {
 		for (Restaurant rest : sortedByRating) {
 			System.out.println( rest.getRating() + " " +  rest.getName() );
 		}
+		
+		//delete by id :
+		index.deleteFromList(101);
+		System.out.println("----After deletion of 101:  ---- ");
+		index.displayAll(); 
 	}
 }
