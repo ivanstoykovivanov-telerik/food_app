@@ -11,5 +11,5 @@ public interface IFindable {
 		
 		public Restaurant findByName(String name); 
 		
-		public ArrayList<Restaurant> findByType(Type type); 
+		public ArrayList<ISearchable> findByType(Type type); 
 }

@@ -1,20 +1,24 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import domain.dao.Finder;
 import domain.dao.IAddable;
 import domain.dao.ICRUD;
+import domain.dao.IFindable;
 import domain.dao.ISearchable;
 
-public class Index extends Finder implements ICRUD{
+public class Index  implements ICRUD, IFindable{
 	private static Index INSTANCE = null ;
-	private ArrayList<ISearchable> restaurants ; 
+	private ArrayList<Restaurant> restaurants ; 
 	
 	//singleton design pattern - we need only one index for the whole app
 	private Index(){
-		super.list = new ArrayList<>();
-		this.restaurants = (ArrayList<ISearchable>) super.list; 
+		//super.list = new ArrayList<>();
+		//this.restaurants = (ArrayList<Restaurant>) super.list;
+		this.restaurants = new ArrayList<>(); 
 	}
 	
 	public static Index getInstance(){
@@ -79,5 +83,12 @@ public class Index extends Finder implements ICRUD{
 			}
 		}
 		return found; 
+	}
+	
+	
+	public ArrayList<Restaurant> sortByRating(){
+		ArrayList<Restaurant> toBeSorted = this.restaurants; 
+		Collections.sort( toBeSorted  );
+		return toBeSorted ; 
 	}
 }
